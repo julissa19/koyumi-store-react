@@ -1,5 +1,6 @@
 import ItemListContainer from "../components/products/ItemListContainer";
 import ContactForm from "../components/form/ContactForm";
+import NewProductContainer from "../components/form/NewProductContainer";
 
 function Productos() {
   return (
@@ -11,11 +12,13 @@ function Productos() {
 
         <p>
           Una selección de maquillaje, papelería, deco, accesorios y coleccionables
-          mágicos para regalar o coleccionar.
+          mágicos para regalar, usar o coleccionar.
         </p>
       </div>
 
       <ItemListContainer />
+
+      <NewProductContainer />
 
       <ContactForm />
     </section>
