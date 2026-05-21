@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Julissa",
+    "email": "julissa@koyumi.com",
+    "puesto": "Fundadora",
+    "foto": "/images/equipo-julissa.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Mia",
+    "email": "mia@koyumi.com",
+    "puesto": "Diseñadora visual",
+    "foto": "/images/equipo-mia.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Luna",
+    "email": "luna@koyumi.com",
+    "puesto": "Atención al cliente",
+    "foto": "/images/equipo-luna.png"
+  }
+]

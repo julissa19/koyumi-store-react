@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "nombre": "Billetera Cinnamoroll",
+    "categoria": "Accesorios",
+    "precio": 8900,
+    "imagen": "/images/billetercinnamoroll.jpeg",
+    "descripcion": "Billetera importada con diseño tierno estilo kawaii, ideal para llevar tarjetas y efectivo con mucho encanto.",
+    "stock": 12,
+    "badge": "Cute"
+  },
+  {
+    "id": 2,
+    "nombre": "Cartera Arroz Plush",
+    "categoria": "Accesorios",
+    "precio": 18500,
+    "imagen": "/images/carteraarroz.jpeg",
+    "descripcion": "Cartera suave y original con diseño adorable, perfecta para outfits cute y casuales.",
+    "stock": 7,
+    "badge": "Nuevo"
+  },
+  {
+    "id": 3,
+    "nombre": "Cartera Ghibli Polar",
+    "categoria": "Coleccionables mágicos",
+    "precio": 22500,
+    "imagen": "/images/carteraghiblipolar.jpeg",
+    "descripcion": "Cartera importada con estética mágica y cozy, ideal para quienes aman los accesorios tiernos y únicos.",
+    "stock": 5,
+    "badge": "Magic"
+  },
+  {
+    "id": 4,
+    "nombre": "Cartera Kiki Black",
+    "categoria": "Coleccionables mágicos",
+    "precio": 23500,
+    "imagen": "/images/carterakiki.jpeg",
+    "descripcion": "Cartera negra con inspiración mágica, delicada y moderna para completar un look kawaii urbano.",
+    "stock": 6,
+    "badge": "Limited"
+  },
+  {
+    "id": 5,
+    "nombre": "Cuaderno Cute Floral",
+    "categoria": "Papelería",
+    "precio": 7600,
+    "imagen": "/images/cuadernocute1.jpeg",
+    "descripcion": "Cuaderno aesthetic con diseño delicado, ideal para journaling, apuntes, ideas y organización diaria.",
+    "stock": 16,
+    "badge": "Dreamy"
+  },
+  {
+    "id": 6,
+    "nombre": "Cuaderno Lace Dream",
+    "categoria": "Papelería",
+    "precio": 8200,
+    "imagen": "/images/cuadernocute2.jpeg",
+    "descripcion": "Cuaderno importado con detalles suaves y románticos, perfecto para una rutina de estudio cute.",
+    "stock": 14,
+    "badge": "Coquette"
+  },
+  {
+    "id": 7,
+    "nombre": "Espejo Cute Vintage",
+    "categoria": "Deco cute",
+    "precio": 9800,
+    "imagen": "/images/espejocute.jpeg",
+    "descripcion": "Espejo decorativo con estética vintage, ideal para tocadores, escritorios y rincones dreamy.",
+    "stock": 9,
+    "badge": "Top"
+  },
+  {
+    "id": 8,
+    "nombre": "Gafas Rojas Retro",
+    "categoria": "Accesorios",
+    "precio": 11500,
+    "imagen": "/images/gafasrojas.jpeg",
+    "descripcion": "Gafas rojas con estilo retro y divertido, pensadas para outfits modernos con un toque diferente.",
+    "stock": 10,
+    "badge": "Trendy"
+  },
+  {
+    "id": 9,
+    "nombre": "Calendario Magical Studio",
+    "categoria": "Papelería",
+    "precio": 10500,
+    "imagen": "/images/ghiblicalendario.jpeg",
+    "descripcion": "Calendario importado con estética mágica, ideal para decorar tu escritorio y organizar tus días.",
+    "stock": 11,
+    "badge": "Magic"
+  },
+  {
+    "id": 10,
+    "nombre": "Lipstick Koyumi Rose",
+    "categoria": "Maquillaje",
+    "precio": 8500,
+    "imagen": "/images/lipstick1.jpeg",
+    "descripcion": "Labial importado con packaging cute, ideal para un look suave, romántico y moderno.",
+    "stock": 12,
+    "badge": "Nuevo"
+  },
+  {
+    "id": 11,
+    "nombre": "Llavero Osito Bow",
+    "categoria": "Accesorios",
+    "precio": 5200,
+    "imagen": "/images/llaveroosito.jpeg",
+    "descripcion": "Llavero tierno con detalle de osito y moño, perfecto para decorar mochilas, carteras o llaves.",
+    "stock": 20,
+    "badge": "Cute"
+  },
+  {
+    "id": 12,
+    "nombre": "Maceta Ghibli Garden",
+    "categoria": "Deco cute",
+    "precio": 13500,
+    "imagen": "/images/macetaghibli.jpeg",
+    "descripcion": "Maceta decorativa con estética natural y mágica, ideal para espacios cozy y plantas pequeñas.",
+    "stock": 8,
+    "badge": "Matcha"
+  },
+  {
+    "id": 13,
+    "nombre": "Paleta Sweet Pastel",
+    "categoria": "Maquillaje",
+    "precio": 18500,
+    "imagen": "/images/paletacute.jpeg",
+    "descripcion": "Paleta de sombras con tonos suaves y románticos para crear maquillajes kawaii y dreamy.",
+    "stock": 8,
+    "badge": "Top"
+  },
+  {
+    "id": 14,
+    "nombre": "Paleta Mirror Dream",
+    "categoria": "Maquillaje",
+    "precio": 19800,
+    "imagen": "/images/paletacute2.jpeg",
+    "descripcion": "Paleta importada con diseño elegante y tonos cute, perfecta para looks delicados y modernos.",
+    "stock": 6,
+    "badge": "Dreamy"
+  },
+  {
+    "id": 15,
+    "nombre": "Rubor Berry Cute",
+    "categoria": "Maquillaje",
+    "precio": 9900,
+    "imagen": "/images/ruborcute1.jpeg",
+    "descripcion": "Rubor compacto con tono frutilla, textura suave y packaging adorable.",
+    "stock": 10,
+    "badge": "Cute"
+  },
+  {
+    "id": 16,
+    "nombre": "Stickers Pastel Set",
+    "categoria": "Papelería",
+    "precio": 6200,
+    "imagen": "/images/stickerscute1.jpeg",
+    "descripcion": "Set de stickers pastel para decorar libretas, agendas, regalos, planners y cartas.",
+    "stock": 20,
+    "badge": "Sale"
+  },
+  {
+    "id": 17,
+    "nombre": "Stickers Garden Cute",
+    "categoria": "Papelería",
+    "precio": 6500,
+    "imagen": "/images/stickerscute2.jpeg",
+    "descripcion": "Stickers importados con detalles florales y tiernos para personalizar tus objetos favoritos.",
+    "stock": 18,
+    "badge": "Nuevo"
+  },
+  {
+    "id": 18,
+    "nombre": "Taza Frog Matcha",
+    "categoria": "Deco cute",
+    "precio": 14500,
+    "imagen": "/images/tazafrog.jpeg",
+    "descripcion": "Taza importada con diseño de ranita, perfecta para bebidas cozy y escritorios aesthetic.",
+    "stock": 9,
+    "badge": "Matcha"
+  },
+  {
+    "id": 19,
+    "nombre": "Totebag Magical Ghibli",
+    "categoria": "Coleccionables mágicos",
+    "precio": 12800,
+    "imagen": "/images/totebagghibli.jpeg",
+    "descripcion": "Bolso tote con estética mágica y delicada, cómodo para usar todos los días.",
+    "stock": 7,
+    "badge": "Magic"
+  },
+  {
+    "id": 20,
+    "nombre": "Zapatos Rojos Doll",
+    "categoria": "Accesorios",
+    "precio": 28500,
+    "imagen": "/images/zapatosrojos.jpeg",
+    "descripcion": "Zapatos rojos con estilo vintage y coquette, ideales para looks únicos y encantadores.",
+    "stock": 4,
+    "badge": "Limited"
+  }
+]
