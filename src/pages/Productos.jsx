@@ -1,6 +1,5 @@
 import ItemListContainer from "../components/products/ItemListContainer";
 import ContactForm from "../components/form/ContactForm";
-import NewProductContainer from "../components/form/NewProductContainer";
 
 function Productos() {
   return (
@@ -17,8 +16,6 @@ function Productos() {
       </div>
 
       <ItemListContainer />
-
-      <NewProductContainer />
 
       <ContactForm />
     </section>
