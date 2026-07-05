@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 function ItemDetail() {
   const { id } = useParams();
+  const { addToCart, isInCart } = useCart();
 
   const [producto, setProducto] = useState(null);
+  const [cantidad, setCantidad] = useState(1);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const [mensaje, setMensaje] = useState("");
 
   useEffect(() => {
     fetch("/data/productos.json")
@@ -27,6 +31,7 @@ function ItemDetail() {
         }
 
         setProducto(productoEncontrado);
+        setCantidad(1);
       })
       .catch((error) => {
         setError(error.message);
@@ -35,6 +40,25 @@ function ItemDetail() {
         setCargando(false);
       });
   }, [id]);
+
+  function incrementarCantidad() {
+    if (!producto) return;
+
+    if (cantidad < producto.stock) {
+      setCantidad(cantidad + 1);
+    }
+  }
+
+  function decrementarCantidad() {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
+  }
+
+  function manejarAgregarAlCarrito() {
+    addToCart(producto, cantidad);
+    setMensaje(`${cantidad} unidad/es de ${producto.nombre} agregada/s al carrito.`);
+  }
 
   if (cargando) {
     return (
@@ -53,6 +77,7 @@ function ItemDetail() {
         <div className="state-box state-box--error">
           <span>💔</span>
           <p>{error}</p>
+
           <Link to="/productos" className="btn btn--primary">
             Volver al catálogo
           </Link>
@@ -60,6 +85,8 @@ function ItemDetail() {
       </section>
     );
   }
+
+  const productoYaAgregado = isInCart(producto.id);
 
   return (
     <section className="detail-page">
@@ -87,9 +114,34 @@ function ItemDetail() {
             </div>
           </div>
 
+          <div className="detail-buy-box">
+            <div className="quantity-control">
+              <button type="button" onClick={decrementarCantidad}>
+                -
+              </button>
+
+              <span>{cantidad}</span>
+
+              <button type="button" onClick={incrementarCantidad}>
+                +
+              </button>
+            </div>
+
+            <p>
+              Subtotal:{" "}
+              <strong>
+                ${(producto.precio * cantidad).toLocaleString("es-AR")}
+              </strong>
+            </p>
+          </div>
+
           <div className="detail-actions">
-            <button className="btn btn--primary">
-              Agregar al carrito
+            <button
+              type="button"
+              className="btn btn--primary"
+              onClick={manejarAgregarAlCarrito}
+            >
+              {productoYaAgregado ? "Sumar más unidades" : "Agregar al carrito"}
             </button>
 
             <Link to="/productos" className="btn btn--ghost">
@@ -97,10 +149,11 @@ function ItemDetail() {
             </Link>
           </div>
 
-          <p className="detail-note">
-             El botón queda preparado visualmente. La lógica
-            real del carrito con Context API es para la próxima pre-entrega.
-          </p>
+          {mensaje && (
+            <p className="detail-success">
+              {mensaje}
+            </p>
+          )}
         </div>
       </div>
     </section>
