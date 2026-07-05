@@ -39,7 +39,7 @@ function Item({ producto }) {
         <p>{descripcion}</p>
 
         <div className="product-card__footer">
-          <strong>${precio.toLocaleString("es-AR")}</strong>
+          <strong>${Number(precio).toLocaleString("es-AR")}</strong>
 
           <Link to={`/producto/${id}`} className="btn btn--small">
             Ver detalle

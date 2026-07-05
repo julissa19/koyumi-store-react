@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 import { useCart } from "../../context/CartContext";
 
 function ItemDetail() {
@@ -13,38 +15,40 @@ function ItemDetail() {
   const [mensaje, setMensaje] = useState("");
 
   useEffect(() => {
-    fetch("/data/productos.json")
-      .then((respuesta) => {
-        if (!respuesta.ok) {
-          throw new Error("No se pudo cargar el detalle del producto");
-        }
+    async function cargarProducto() {
+      setCargando(true);
+      setError(null);
+      setMensaje("");
 
-        return respuesta.json();
-      })
-      .then((data) => {
-        const productoEncontrado = data.find(
-          (item) => item.id === Number(id)
-        );
+      try {
+        const productoRef = doc(db, "productos", id);
+        const snapshot = await getDoc(productoRef);
 
-        if (!productoEncontrado) {
+        if (!snapshot.exists()) {
           throw new Error("Producto no encontrado");
         }
 
-        setProducto(productoEncontrado);
+        setProducto({
+          id: snapshot.id,
+          ...snapshot.data()
+        });
+
         setCantidad(1);
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => {
+      } catch (error) {
+        console.error(error);
+        setError(error.message || "No se pudo cargar el detalle del producto");
+      } finally {
         setCargando(false);
-      });
+      }
+    }
+
+    cargarProducto();
   }, [id]);
 
   function incrementarCantidad() {
     if (!producto) return;
 
-    if (cantidad < producto.stock) {
+    if (cantidad < Number(producto.stock)) {
       setCantidad(cantidad + 1);
     }
   }
@@ -87,6 +91,8 @@ function ItemDetail() {
   }
 
   const productoYaAgregado = isInCart(producto.id);
+  const precio = Number(producto.precio);
+  const stock = Number(producto.stock);
 
   return (
     <section className="detail-page">
@@ -105,12 +111,12 @@ function ItemDetail() {
           <div className="detail-meta">
             <div>
               <span>Precio</span>
-              <strong>${producto.precio.toLocaleString("es-AR")}</strong>
+              <strong>${precio.toLocaleString("es-AR")}</strong>
             </div>
 
             <div>
               <span>Stock disponible</span>
-              <strong>{producto.stock} unidades</strong>
+              <strong>{stock} unidades</strong>
             </div>
           </div>
 
@@ -130,7 +136,7 @@ function ItemDetail() {
             <p>
               Subtotal:{" "}
               <strong>
-                ${(producto.precio * cantidad).toLocaleString("es-AR")}
+                ${(precio * cantidad).toLocaleString("es-AR")}
               </strong>
             </p>
           </div>
@@ -140,8 +146,13 @@ function ItemDetail() {
               type="button"
               className="btn btn--primary"
               onClick={manejarAgregarAlCarrito}
+              disabled={stock === 0}
             >
-              {productoYaAgregado ? "Sumar más unidades" : "Agregar al carrito"}
+              {stock === 0
+                ? "Sin stock"
+                : productoYaAgregado
+                  ? "Sumar más unidades"
+                  : "Agregar al carrito"}
             </button>
 
             <Link to="/productos" className="btn btn--ghost">

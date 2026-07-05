@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/config";
 import Item from "./Item";
 
 function ItemListContainer() {
@@ -11,23 +13,33 @@ function ItemListContainer() {
   const categoriaActiva = searchParams.get("categoria") || "Todos";
 
   useEffect(() => {
-    fetch("/data/productos.json")
-      .then((respuesta) => {
-        if (!respuesta.ok) {
-          throw new Error("No se pudieron cargar los productos");
-        }
+    async function cargarProductos() {
+      setCargando(true);
+      setError(null);
 
-        return respuesta.json();
-      })
-      .then((data) => {
-        setProductos(data);
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => {
+      try {
+        const productosRef = collection(db, "productos");
+        const snapshot = await getDocs(productosRef);
+
+        const productosFirebase = snapshot.docs.map((documento) => ({
+          id: documento.id,
+          ...documento.data()
+        }));
+
+        productosFirebase.sort((a, b) =>
+          a.nombre.localeCompare(b.nombre)
+        );
+
+        setProductos(productosFirebase);
+      } catch (error) {
+        console.error(error);
+        setError("No se pudieron cargar los productos desde Firestore.");
+      } finally {
         setCargando(false);
-      });
+      }
+    }
+
+    cargarProductos();
   }, []);
 
   const categorias = useMemo(() => {
@@ -40,7 +52,9 @@ function ItemListContainer() {
       return productos;
     }
 
-    return productos.filter((producto) => producto.categoria === categoriaActiva);
+    return productos.filter(
+      (producto) => producto.categoria === categoriaActiva
+    );
   }, [productos, categoriaActiva]);
 
   function cambiarCategoria(categoria) {
@@ -54,11 +68,7 @@ function ItemListContainer() {
   if (cargando) {
     return (
       <div className="state-box">
-        <img
-          src="/images/icons/loading.png"
-          alt=""
-          className="state-img"
-        />
+        <span>✨</span>
         <p>Cargando productos Koyumi...</p>
       </div>
     );
@@ -67,11 +77,7 @@ function ItemListContainer() {
   if (error) {
     return (
       <div className="state-box state-box--error">
-        <img
-          src="/images/icons/error.png"
-          alt=""
-          className="state-img"
-        />
+        <span>💔</span>
         <p>{error}</p>
       </div>
     );
@@ -105,11 +111,18 @@ function ItemListContainer() {
         ))}
       </div>
 
-      <div className="product-grid">
-        {productosFiltrados.map((producto) => (
-          <Item key={producto.id} producto={producto} />
-        ))}
-      </div>
+      {productosFiltrados.length === 0 ? (
+        <div className="state-box">
+          <span>🔎</span>
+          <p>No encontramos productos en esta categoría.</p>
+        </div>
+      ) : (
+        <div className="product-grid">
+          {productosFiltrados.map((producto) => (
+            <Item key={producto.id} producto={producto} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
