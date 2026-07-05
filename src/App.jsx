@@ -10,6 +10,7 @@ import Registro from "./pages/Registro";
 import Perfil from "./pages/Perfil";
 import AdminProductos from "./pages/AdminProductos";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import GestionCupones from "./pages/GestionCupones";
 
 function App() {
   return (
@@ -38,6 +39,15 @@ function App() {
           element={
             <ProtectedRoute adminOnly={true}>
               <AdminProductos />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/cupones"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <GestionCupones />
             </ProtectedRoute>
           }
         />
