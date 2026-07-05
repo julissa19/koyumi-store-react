@@ -11,15 +11,14 @@ function Registro() {
     password: ""
   });
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (user) {
         navigate("/perfil", { replace: true });
     }
     }, [user, navigate]);
-
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
   
 
   function manejarCambio(evento) {
