@@ -11,6 +11,7 @@ import Perfil from "./pages/Perfil";
 import AdminProductos from "./pages/AdminProductos";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import GestionCupones from "./pages/GestionCupones";
+import AdminPedidos from "./pages/AdminPedidos";
 
 function App() {
   return (
@@ -48,6 +49,15 @@ function App() {
           element={
             <ProtectedRoute adminOnly={true}>
               <GestionCupones />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/pedidos"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminPedidos />
             </ProtectedRoute>
           }
         />

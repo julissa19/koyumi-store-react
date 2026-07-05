@@ -50,6 +50,11 @@ function NavBar() {
                 <span>🎟️</span>
                 Cupones
               </NavLink>
+
+              <NavLink to="/admin/pedidos">
+                <span>📦</span>
+                Pedidos
+              </NavLink>
             </div>
           </div>
         )}
@@ -145,6 +150,11 @@ function NavBar() {
                 <NavLink to="/admin/cupones" onClick={cerrarMenu}>
                   <span>🎟️</span>
                   Cupones
+                </NavLink>
+
+                <NavLink to="/admin/pedidos">
+                  <span>📦</span>
+                  Pedidos
                 </NavLink>
               </div>
             )}
