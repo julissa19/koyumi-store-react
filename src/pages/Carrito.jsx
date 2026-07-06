@@ -371,11 +371,6 @@ function Carrito() {
           <Link to="/productos" className="btn btn--ghost">
             Seguir comprando
           </Link>
-
-          <p>
-            El pedido queda registrado en Firestore con usuario, productos,
-            cupón, descuento y total final.
-          </p>
         </aside>
       </div>
     </section>

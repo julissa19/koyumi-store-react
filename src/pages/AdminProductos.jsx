@@ -241,8 +241,7 @@ function AdminProductos() {
         <h2>Gestión de productos</h2>
 
         <p>
-          Creá, editá y eliminá productos del catálogo. Las imágenes se suben a
-          ImgBB y los datos quedan guardados en Firestore.
+          Creá, editá y eliminá productos del catálogo.
         </p>
       </div>
 

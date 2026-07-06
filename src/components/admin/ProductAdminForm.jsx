@@ -21,8 +21,7 @@ function ProductAdminForm({
           <h3>{editando ? "Actualizar producto" : "Crear producto Koyumi"}</h3>
 
           <p>
-            Completá los datos del producto. La imagen se sube a ImgBB y la URL
-            queda guardada en Firestore.
+            Completá los datos del producto.
           </p>
         </div>
 

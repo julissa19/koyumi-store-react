@@ -168,10 +168,6 @@ function GestionCupones() {
           <div>
             <span className="eyebrow">Nuevo cupón</span>
             <h3>Crear descuento</h3>
-            <p>
-              El código se guardará en mayúsculas para que sea más fácil de
-              aplicar en el carrito.
-            </p>
           </div>
 
           <label>
