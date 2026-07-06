@@ -164,7 +164,11 @@ function Carrito() {
     return (
       <section className="cart-page">
         <div className="order-success-card">
-          <span className="order-success-card__icon">✨</span>
+          <img
+            src="/images/icons/sparkle.png"
+            alt=""
+            className="order-success-card__icon"
+          />
 
           <span className="eyebrow">Pedido creado</span>
 

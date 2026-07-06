@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useCart } from "../../context/CartContext";
+import { Helmet } from "react-helmet";
+import KoyumiLoader from "../ui/KoyumiLoader";
 
 function ItemDetail() {
   const { id } = useParams();
@@ -67,10 +69,7 @@ function ItemDetail() {
   if (cargando) {
     return (
       <section className="detail-page">
-        <div className="state-box">
-          <span>✨</span>
-          <p>Cargando detalle...</p>
-        </div>
+        <KoyumiLoader text="Cargando detalle..." />
       </section>
     );
   }
@@ -96,6 +95,13 @@ function ItemDetail() {
 
   return (
     <section className="detail-page">
+      <Helmet>
+        <title>Koyumi | {producto.nombre}</title>
+        <meta
+          name="description"
+          content={`Conocé ${producto.nombre}, producto de la categoría ${producto.categoria} en Koyumi.`}
+        />
+      </Helmet>
       <div className="detail-card">
         <div className="detail-card__image">
           <img src={producto.imagen} alt={producto.nombre} />
@@ -147,6 +153,7 @@ function ItemDetail() {
               className="btn btn--primary"
               onClick={manejarAgregarAlCarrito}
               disabled={stock === 0}
+              aria-label={`Agregar ${producto.nombre} al carrito`}
             >
               {stock === 0
                 ? "Sin stock"

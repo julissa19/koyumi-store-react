@@ -175,14 +175,14 @@ function AdminProductos() {
         const productoRef = doc(db, "productos", productoAEditar.id);
         await updateDoc(productoRef, productoPayload);
 
-        setSuccess("Producto actualizado correctamente ✨");
+        setSuccess("Producto actualizado correctamente ♡");
       } else {
         await addDoc(collection(db, "productos"), {
           ...productoPayload,
           creadoEn: new Date().toISOString()
         });
 
-        setSuccess("Producto creado correctamente ✨");
+        setSuccess("Producto creado correctamente ♡");
       }
 
       limpiarFormulario();

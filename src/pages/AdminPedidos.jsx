@@ -76,7 +76,7 @@ function AdminPedidos() {
         actualizadoEn: new Date().toISOString()
       });
 
-      setSuccess("Estado del pedido actualizado correctamente ✨");
+      setSuccess("Estado del pedido actualizado correctamente ♡");
 
       setPedidos((pedidosActuales) =>
         pedidosActuales.map((pedido) =>
@@ -128,14 +128,23 @@ function AdminPedidos() {
 
       {loading ? (
         <div className="state-box">
-          <span>✨</span>
-          <p>Cargando pedidos...</p>
+            <img
+              src="/images/icons/loading.png"
+              alt=""
+              className="state-img"
+            />
+            <p>Cargando tus pedidos...</p>
         </div>
       ) : pedidos.length === 0 ? (
         <div className="state-box">
-          <span>🧺</span>
+          <img
+            src="/images/icons/empty-basket.png"
+            alt=""
+            className="empty-orders__icon"
+            />
           <p>Todavía no hay pedidos registrados.</p>
         </div>
+        
       ) : (
         <div className="admin-orders-list">
           {pedidos.map((pedido) => (

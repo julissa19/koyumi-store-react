@@ -9,6 +9,7 @@ import {
   where
 } from "firebase/firestore";
 import { db } from "../firebase/config";
+import KoyumiLoader from "../components/ui/KoyumiLoader";
 
 function GestionCupones() {
   const [cupones, setCupones] = useState([]);
@@ -118,7 +119,7 @@ function GestionCupones() {
         porcentaje: ""
       });
 
-      setSuccess("Cupón creado correctamente ✨");
+      setSuccess("Cupón creado correctamente ♡");
 
       await cargarCupones();
     } catch (error) {
@@ -214,13 +215,14 @@ function GestionCupones() {
           </div>
 
           {loading ? (
-            <div className="state-box">
-              <span>✨</span>
-              <p>Cargando cupones...</p>
-            </div>
+            <KoyumiLoader text="Cargando cupones..." />
           ) : cupones.length === 0 ? (
             <div className="state-box">
-              <span>🎟️</span>
+              <img
+                src="/images/icons/coupon.png"
+                alt=""
+                className="state-img"
+              />
               <p>Todavía no hay cupones creados.</p>
             </div>
           ) : (

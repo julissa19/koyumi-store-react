@@ -37,22 +37,44 @@ function NavBar() {
               }
             >
               <span>Panel Koyumi</span>
-              <strong>✨</strong>
+                <img
+                  src="/images/icons/sparkle.png"
+                  alt=""
+                  className="admin-menu__sparkle"
+                />
             </button>
 
             <div className="admin-menu__dropdown">
               <NavLink to="/admin/productos">
-                <span>🧸</span>
+                <span>
+                  <img
+                    src="/images/icons/admin-products.png"
+                    alt=""
+                    className="admin-menu__dropdown-icon"
+                  />
+                </span>
                 Gestionar productos
               </NavLink>
 
               <NavLink to="/admin/cupones">
-                <span>🎟️</span>
+                <span>
+                  <img
+                    src="/images/icons/coupon.png"
+                    alt=""
+                    className="admin-menu__dropdown-icon"
+                  />
+                </span>
                 Cupones
               </NavLink>
 
               <NavLink to="/admin/pedidos">
-                <span>📦</span>
+                <span>
+                  <img
+                    src="/images/icons/orders.png"
+                    alt=""
+                    className="admin-menu__dropdown-icon"
+                  />
+                </span>
                 Pedidos
               </NavLink>
             </div>
@@ -85,7 +107,7 @@ function NavBar() {
           onClick={() => setMenuAbierto(true)}
           aria-label="Abrir menú"
         >
-          <span>☰</span>
+          <img src="/images/icons/menu.png" alt="" className="mobile-menu-button__icon" />
           Menú
         </button>
       </div>
@@ -105,35 +127,57 @@ function NavBar() {
                 onClick={cerrarMenu}
                 aria-label="Cerrar menú"
               >
-                ×
+                <img
+                  src="/images/icons/close.png"
+                  alt=""
+                  className="mobile-menu__close-icon"
+                />
               </button>
             </div>
 
             <div className="mobile-menu__links">
               <NavLink to="/" onClick={cerrarMenu}>
-                <span>🏠</span>
+                <span>
+                  <img src="/images/icons/home.png" alt="" className="mobile-menu__icon" />
+                </span>
                 Inicio
               </NavLink>
 
               <NavLink to="/productos" onClick={cerrarMenu}>
-                <span>🛍️</span>
+                <span>
+                  <img src="/images/icons/products.png" alt="" className="mobile-menu__icon" />
+                </span>
                 Productos
               </NavLink>
 
               {user ? (
                 <NavLink to="/perfil" onClick={cerrarMenu}>
-                  <span>👤</span>
+                  <span>
+                    <img
+                      src="/images/icons/profile.png"
+                      alt=""
+                      className="mobile-menu__icon"
+                    />
+                  </span>
                   Mi perfil
                 </NavLink>
               ) : (
                 <NavLink to="/login" onClick={cerrarMenu}>
-                  <span>🔐</span>
+                  <span>
+                    <img
+                      src="/images/icons/profile.png"
+                      alt=""
+                      className="mobile-menu__icon"
+                    />
+                  </span>
                   Ingresar
                 </NavLink>
               )}
 
               <NavLink to="/carrito" onClick={cerrarMenu}>
-                <span>🛒</span>
+                <span>
+                  <img src="/images/icons/cart.png" alt="" className="mobile-menu__icon" />
+                </span>
                 Carrito ({getCartQuantity()})
               </NavLink>
             </div>
@@ -143,17 +187,23 @@ function NavBar() {
                 <p>Panel admin</p>
 
                 <NavLink to="/admin/productos" onClick={cerrarMenu}>
-                  <span>🧸</span>
+                  <span>
+                    <img src="/images/icons/admin-products.png" alt="" className="mobile-menu__icon" />
+                  </span>
                   Gestionar productos
                 </NavLink>
 
                 <NavLink to="/admin/cupones" onClick={cerrarMenu}>
-                  <span>🎟️</span>
+                  <span>
+                    <img src="/images/icons/coupon.png" alt="" className="mobile-menu__icon" />
+                  </span>
                   Cupones
                 </NavLink>
 
-                <NavLink to="/admin/pedidos">
-                  <span>📦</span>
+                <NavLink to="/admin/pedidos" onClick={cerrarMenu}>
+                  <span>
+                    <img src="/images/icons/orders.png" alt="" className="mobile-menu__icon" />
+                  </span>
                   Pedidos
                 </NavLink>
               </div>

@@ -2,7 +2,11 @@ function ProductAdminList({ productos, loading, onEdit, onAskDelete }) {
   if (loading) {
     return (
       <div className="state-box">
-        <span>✨</span>
+        <img
+          src="/images/icons/loading.png"
+          alt=""
+          className="state-img"
+        />
         <p>Cargando productos del panel...</p>
       </div>
     );
@@ -11,7 +15,7 @@ function ProductAdminList({ productos, loading, onEdit, onAskDelete }) {
   if (productos.length === 0) {
     return (
       <div className="state-box">
-        <img src="/images/icons/cart.png" alt="" className="cart-widget__icon" />
+        <img src="/images/icons/empty-basket.png" alt="" className="cart-widget__icon" />
         <p>Todavía no hay productos cargados en Firestore.</p>
       </div>
     );

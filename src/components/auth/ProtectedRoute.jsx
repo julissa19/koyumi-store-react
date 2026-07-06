@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import KoyumiLoader from "../ui/KoyumiLoader";
 
 function ProtectedRoute({ children, adminOnly = false }) {
   const { user, loadingAuth } = useAuth();
@@ -7,10 +8,7 @@ function ProtectedRoute({ children, adminOnly = false }) {
   if (loadingAuth) {
     return (
       <section className="products-page">
-        <div className="state-box">
-          <span>✨</span>
-          <p>Verificando sesión...</p>
-        </div>
+        <KoyumiLoader text="Verificando sesión..." />
       </section>
     );
   }

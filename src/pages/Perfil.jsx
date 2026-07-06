@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useAuth } from "../context/AuthContext";
+import KoyumiLoader from "../components/ui/KoyumiLoader";
 
 function Perfil() {
   const { user, logout } = useAuth();
@@ -64,7 +65,10 @@ function Perfil() {
       <div className="profile-card">
         <span className="eyebrow">Mi perfil</span>
 
-        <h2>Hola de nuevo ✨</h2>
+        <h2 className="title-with-icon">
+          Hola de nuevo
+          <img src="/images/icons/sparkle.png" alt="" className="inline-sparkle" />
+        </h2>
 
         <p>
           Sesión iniciada como:
@@ -98,10 +102,7 @@ function Perfil() {
         </div>
 
         {loadingPedidos ? (
-          <div className="state-box">
-            <span>✨</span>
-            <p>Cargando tus pedidos...</p>
-          </div>
+          <KoyumiLoader text="Cargando tus pedidos..." />
         ) : errorPedidos ? (
           <div className="state-box state-box--error">
             <span>💔</span>
@@ -109,7 +110,11 @@ function Perfil() {
           </div>
         ) : pedidos.length === 0 ? (
           <div className="empty-orders">
-            <span>🧺</span>
+            <img
+              src="/images/icons/empty-basket.png"
+              alt=""
+              className="empty-orders__icon"
+            />
             <h3>Todavía no tenés pedidos</h3>
             <p>
               Cuando finalices una compra, tu pedido va a aparecer acá.
